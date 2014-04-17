@@ -1,0 +1,23 @@
+---
+driver:
+  name: vagrant
+  customize:
+    memory: 1024
+
+provisioner:
+  require_chef_omnibus: true
+
+platforms:
+  - name: ubuntu-12.04
+    network:
+      - ["private_network", {ip: "192.168.33.40"}]
+
+suites:
+  - name: default
+    run_list:
+      - recipe[confluence-jira-crowd]
+    attributes:
+      mysql:
+        server_root_password: iloverandompasswordsbutthiswilldo
+        server_repl_password: iloverandompasswordsbutthiswilldo
+        server_debian_password: iloverandompasswordsbutthiswilldo

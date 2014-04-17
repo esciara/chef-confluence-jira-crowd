@@ -1,4 +1,4 @@
-chef-confluence-jira-crowd
+confluence-jira-crowd
 ==========================
 
-Setups up a cluster with Confluence, Jira and Crowd all talking to one another.
+Installs/Configures a cluster with Atlassian's Confluence, Jira and Crowd all talking to one another.
