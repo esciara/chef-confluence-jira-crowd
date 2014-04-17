@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'faraday'
 require 'nokogiri'
 require 'socket'
@@ -9,12 +10,12 @@ end
 
 When(/^a web user browses to the url$/) do
   connection = Faraday.new(:url => "https://#{@local_ip}",
-                           :ssl => {:verify => false}) do |faraday|
+                           :ssl => { :verify => false }) do |faraday|
     faraday.adapter Faraday.default_adapter
   end
   @title = Nokogiri::HTML(connection.get('/setup/setuplicense.action').body).title
 end
 
 Then(/^the page should have the title "(.*?)"$/) do |title|
-  expect(@title).to match /#{title}/
+  expect(@title).to match(/#{title}/)
 end
