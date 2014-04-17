@@ -9,11 +9,12 @@ provisioner:
 
 platforms:
   - name: ubuntu-12.04
-    network:
-      - ["private_network", {ip: "192.168.33.40"}]
+    driver:
+      network:
+        - ["private_network", {ip: "192.168.33.40"}]
 
 suites:
-  - name: default
+  - name: confluence-jira-crowd
     run_list:
       - recipe[confluence-jira-crowd]
     attributes:
