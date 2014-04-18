@@ -20,7 +20,11 @@ platforms:
   - recipe[apt]
 
 suites:
-  - name: default
+  - name: confluence-jira-crowd
     run_list:
-      - recipe[wonderstuff::default]
+      - recipe[confluence-jira-crowd]
     attributes:
+      mysql:
+        server_root_password: iloverandompasswordsbutthiswilldo
+        server_repl_password: iloverandompasswordsbutthiswilldo
+        server_debian_password: iloverandompasswordsbutthiswilldo
