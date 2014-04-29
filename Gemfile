@@ -7,7 +7,7 @@ group :lint do
 end
 
 group :unit do
-  gem 'berkshelf',  '~> 3.0.0.beta9'
+  gem 'berkshelf',  '~> 3.0'
   gem 'chefspec',   '~> 3.4'
   gem 'rspec-expectations'
   gem 'cucumber'
