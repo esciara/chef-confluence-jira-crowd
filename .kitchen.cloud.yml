@@ -21,6 +21,8 @@ platforms:
 
 suites:
   - name: confluence-jira-crowd
+    driver:
+      server_name: confluence-jira-crowd-server
     run_list:
       - recipe[confluence-jira-crowd]
     attributes:
