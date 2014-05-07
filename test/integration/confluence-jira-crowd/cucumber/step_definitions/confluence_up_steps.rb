@@ -12,10 +12,18 @@ When(/^a web user browses to the url$/) do
                            :ssl => { :verify => false }) do |faraday|
     faraday.adapter Faraday.default_adapter
   end
-  @page_body = connection.get('/setup/setuplicense.action').body
+  @response = connection.get('/setup/setuplicense.action')
+end
+
+Then(/^the connection should be successful$/) do
+  @response.success?.should be_true
+end
+
+Then(/^the page status should be OK$/) do
+  @response.status.should == 200
 end
 
 Then(/^the page should have the title "(.*?)"$/) do |title|
-  page_title = @page_body.match(/<title>(.*?)<\/title>/)[1]
+  page_title = @response.body.match(/<title>(.*?)<\/title>/)[1]
   expect(page_title).to match(title)
 end
